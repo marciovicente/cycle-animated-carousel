@@ -1,5 +1,5 @@
 # Simple jQuery cycle slider
-Powered by [Animate.css](https://github.com/daneden/animate.css)
+Made with [Animate.css](https://github.com/daneden/animate.css)
 
 ## Basic usage
 HTML
