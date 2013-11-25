@@ -19,6 +19,16 @@ HTML
   <script src="cycle-animated-carousel.js"></script>
 ```
 
+CSS
+```css
+.div-parent {
+  width: 200px;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+}
+```
+
 JS
 ```javascript
   $('.parent-div').cycleCarousel({
@@ -27,3 +37,5 @@ JS
   });
 ```
 See all available animations in https://daneden.me/animate/
+
+
