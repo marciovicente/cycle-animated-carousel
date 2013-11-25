@@ -10,6 +10,11 @@
     function Plugin (element, options) {
         this.element = element;
         this.settings = $.extend( {}, defaults, options );
+        this.element = element;
+        this.$element = $(element);
+        this.$child = this.$element.find('.cycle');
+        this.lenght_child = this.count = this.$child.length;
+        this.animation = defaults.animation;
         this._defaults = defaults;
         this._name = pluginName;
         this.init();
@@ -17,37 +22,30 @@
 
     Plugin.prototype = {
         init: function () {
-            var $parent = $(this);
-            var $el = $parent.find('.slide');
-            var lenght_els = count = $el.length;
-            var time = settings.time*1000;
-            var animation = settings.animation;
-            var i = 0;
-            doTheInterval(settings.count);
+            this.doTheInterval(defaults.count);
         },
-        doTheInterval: function (i) {
-            setInterval(function(){
-                increment(i);
-            }, time);
+        increment: function (scope){
+            if (defaults.count < scope.$child.length && scope.lenght_child > 1){
+                scope.$element.find('.cycle').eq(defaults.count+1).addClass(''+scope.animation+' animated').css('display','block').siblings().removeClass('animated'+scope.animation+' active').css('display','none');
+                scope.count--;
+                defaults.count++;
+            }
+            if(scope.count == 0){
+               scope.count = scope.$child.length;
+               defaults.count = 0;
+            }
+            return defaults.count;
         },
-        increment: function (i){
-            if (settings.count < lenght_els && lenght_els > 1){
-                $parent.find('.cycle').eq(settings.count).addClass(''+animation+' animated').css('display','block').siblings().removeClass('animated'+animation+' active').css('display','none');
-                count--;
-                settings.count++;
-            }
-            if(count == 0){
-               count = lenght_els;
-               settings.count = 0;
-            }
-            return settings.count;
-        }
+        doTheInterval: function () {
+            var scope = this;
+            var teste = setInterval(this.increment, defaults.time*1000, scope);
+        },
     };
 
     $.fn[ pluginName ] = function (options) {
         return this.each(function() {
-            if ( !$.data( this, "plugin_" + pluginName ) ) {
-                $.data( this, "plugin_" + pluginName, new Plugin( this, options ) );
+            if ( !$.data( this, "plugin_" + pluginName)) {
+                $.data( this, "plugin_" + pluginName, new Plugin(this, options));
             }
         });
     };

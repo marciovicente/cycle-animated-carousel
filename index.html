@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demos</title>
+  <link rel="stylesheet" href="animate.min.css">
+  <style>
+  .div-parent {
+    width: 200px;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+  }
+  .cycle{
+    width: 180px;
+    height: 60px;
+    background: yellow;
+  }
+  .cycle:nth-child(1){
+    background: red;
+  }
+  .cycle:nth-child(2){
+    background: blue;
+  }
+</style>
+</head>
+<body>
+ <div class="div-parent">
+    <div class="cycle">Element One</div>
+    <div class="cycle">Element Two</div>
+    <div class="cycle"><img src="path_to/element_three.png"></div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="cycle-animated-carousel.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('.div-parent').cycleCarousel({
+      animation: 'pulse',
+      time: 1
+    });
+  });
+  </script>
+</body>
+</html>
