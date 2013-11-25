@@ -1,7 +1,8 @@
 # Simple jQuery cycle slider
-* Powered by [Animate.css](https://github.com/daneden/animate.css) *
+Powered by [Animate.css](https://github.com/daneden/animate.css)
 
 ## Basic usage
+HTML
 ```html
   <div class="parent-div">
     <div class="cycle">Element One</div>
@@ -10,10 +11,11 @@
   </div>
 ```
 
+JS
 ```javascript
   $('.parent-div').cycleCarousel({
     time: 5, //in seconds
     animation: 'pulse'
   });
 ```
-* See all animations in (https://daneden.me/animate/) *
+See all available animations in https://daneden.me/animate/
