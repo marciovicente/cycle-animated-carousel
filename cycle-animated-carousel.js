@@ -14,7 +14,8 @@
         this.$element = $(element);
         this.$child = this.$element.find('.cycle');
         this.lenght_child = this.count = this.$child.length;
-        this.animation = defaults.animation;
+        this.animation = this.settings.animation;
+        this.time = this.settings.time
         this._defaults = defaults;
         this._name = pluginName;
         this.init();
@@ -32,13 +33,13 @@
             }
             if(scope.count == 0){
                scope.count = scope.$child.length;
-               defaults.count = 0;
+               defaults.count = -1;
             }
             return defaults.count;
         },
         doTheInterval: function () {
             var scope = this;
-            var teste = setInterval(this.increment, defaults.time*1000, scope);
+            var teste = setInterval(this.increment, scope.time*1000, scope);
         },
     };
 
