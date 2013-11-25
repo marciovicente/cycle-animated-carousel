@@ -15,7 +15,7 @@ HTML
   </div>
   ...
   
-  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <script src="cycle-animated-carousel.js"></script>
 ```
 
@@ -26,6 +26,9 @@ CSS
   height: 60px;
   overflow: hidden;
   position: relative;
+}
+.cycle {
+  height: 60px; /* same height that .div-parent */
 }
 ```
 
