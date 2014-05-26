@@ -1,5 +1,5 @@
 # Simple jQuery cycle slider
-Very simple jquery micro-slider made with [Animate.css](https://github.com/daneden/animate.css)
+Very simple jquery micro-slider made using [Animate.css](https://github.com/daneden/animate.css)
 
 ## Basic usage
 HTML
